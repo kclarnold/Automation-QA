@@ -111,10 +111,10 @@ namespace WebPayments
                     requestDetails.ResponsePostUrl = "https://http://accela-sf-kla.cloudapp.net/testapps/YouSubmitted.aspx";
                     //This is an account Identifier that should be unique to your implementation.
                     requestDetails.PaymentGatewayAccountIdentifier = "";
-                    //This should Identify who is submitting the payment for the client
+                    //This should Identify who is processing the payment for the client  NMI etc..
                     requestDetails.PaymentProcessor = "";
 
-                    requestDetails.UserToken = ""; //TODO figure out how to pupulate this locally
+                    requestDetails.UserToken = "token1"; //TODO figure out how to pupulate this locally
                     requestDetails.GatewayName = "NMI";
                     //The only payment gateway currently supported is NMI
 
@@ -122,10 +122,12 @@ namespace WebPayments
                     //implementers should hardcode their agency Identifier and retrieve application ID from the application.
                     requestDetails.ApplicationIdentifier = "00000001";
                     requestDetails.AgencyIdentifier = "00000001";
+
+                    //Initialize a webpayments client
                     WebPaymentsClient client = new WebPaymentsClient();
                     PaymentProfile AddPaymentProfile = new PaymentProfile(client);
 
-
+                    //Blindly send out an addpayment request.
                     AddPaymentProfile.AddPaymentProfileByRequest(requestDetails);
 
                 }

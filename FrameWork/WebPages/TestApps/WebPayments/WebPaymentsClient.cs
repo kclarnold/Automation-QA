@@ -111,7 +111,7 @@ namespace WebPayments.Client
         private void Initialize()
         {
             this.PaymentProfile = new PaymentProfile(this);
-            this.BaseUri = new Uri("https://accela-civic-payments-dev.azurewebsites.net:80");
+            this.BaseUri = new Uri("https://accela-civic-payments-dev.azurewebsites.net:443");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
